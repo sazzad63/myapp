@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/internal/photo_update.dart';
+import 'package:myapp/internal/home_content.dart';
 import '../main.dart';
+import 'activities.dart';
 
-class Dashboard extends StatelessWidget {
+int _selectedTab=0;
+var  _bottomMenuPages = [const HomeContent(), const Activities()];
+
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,10 +26,15 @@ class Dashboard extends StatelessWidget {
             elevation: 50,
             title: const Center(
               child: Text(
-                "Welcome",
-                style: TextStyle(color: Colors.white),
+                "Modhupur Secondary School",
+                style: TextStyle(
+                  fontSize: 18,
+                    color: Colors.white,
+                  fontWeight: FontWeight.bold
+                ),
               ),
             ),
+
             iconTheme: const IconThemeData(color: Colors.white),
             actions: [
               PopupMenuButton(
@@ -28,6 +43,20 @@ class Dashboard extends StatelessWidget {
                     value: 0,
                     child: Row(
                       children: [
+                        Icon(Icons.settings, color: Colors.black,),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text("Setting"),
+                      ],
+                    ),
+                  ),
+
+                  const PopupMenuItem<int>(
+                    value: 0,
+                    child: Row(
+                      children: [
+                        Icon(Icons.logout, color: Colors.black,),
                         SizedBox(
                           width: 10,
                         ),
@@ -39,6 +68,11 @@ class Dashboard extends StatelessWidget {
                 onSelected: (item) => selectedItem(context, item),
               )
             ],
+          ),
+
+          
+          body: Center(
+            child: _bottomMenuPages[_selectedTab],
           ),
 
           // start drawer menu list
@@ -115,7 +149,9 @@ class Dashboard extends StatelessWidget {
                     );
                   },
                 ),
+
                 const Divider(),
+
                 ListTile(
                   title: const Row(
                     children: [
@@ -160,11 +196,42 @@ class Dashboard extends StatelessWidget {
               ],
             ),
           ),
+
+          bottomNavigationBar: BottomNavigationBar(
+            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+            unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+            backgroundColor: Colors.white70,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                ),
+                label: "Home"
+              ),
+
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.list_alt,
+                  ),
+                  label: "Activities",
+              )
+            ],
+            currentIndex: _selectedTab,
+            onTap: (setValue){
+              setState(() {
+                _selectedTab=setValue;
+              });
+            },
+          ),
         ),
       ),
     );
   }
 }
+
+
+
+
 
 selectedItem(BuildContext context, int item) {
   switch (item) {

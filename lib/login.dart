@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import 'internal/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/registration/personal_info.dart';
@@ -32,8 +34,8 @@ class Login extends StatelessWidget {
                     height: 50,
                   ),
                   Image.asset(
-                    "assets/images/flutter-icon.png",
-                    width: 70,
+                    "assets/images/cover.png",
+                    fit: BoxFit.cover,
                   ),
                   const SizedBox(
                     height: 50,
@@ -42,7 +44,7 @@ class Login extends StatelessWidget {
                     children: [
                       Text(
                         "Login Account",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -50,6 +52,10 @@ class Login extends StatelessWidget {
                     height: 15,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -76,7 +82,7 @@ class Login extends StatelessWidget {
                     validator: Validators.compose([
                       Validators.required('Password is required'),
                       Validators.minLength(
-                          4, 'Password minimum 4 characters in length'),
+                          6, 'Password minimum 6 characters in length'),
                       Validators.maxLength(
                           8, 'Password maximum 8 characters in length'),
                     ]),
@@ -106,9 +112,11 @@ class Login extends StatelessWidget {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
+
                   const SizedBox(
                     height: 80,
                   ),
+
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
