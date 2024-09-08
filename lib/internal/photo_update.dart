@@ -13,8 +13,8 @@ class PhotoUpdate extends StatefulWidget {
 
 class _PhotoUpdateState extends State<PhotoUpdate> {
 
-  XFile? _imageFile;
-  final _picker = ImagePicker();
+  XFile? _imageFile2;
+  final _picker2 = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,9 @@ class _PhotoUpdateState extends State<PhotoUpdate> {
                         color: Colors.black12,
                       )),
                   child: CircleAvatar(
-                    backgroundImage: _imageFile==null?
+                    backgroundImage: _imageFile2==null?
                     const AssetImage('assets/images/user_icon.png')
-                        :FileImage(File(_imageFile!.path)),
+                        :FileImage(File(_imageFile2!.path)),
                     radius: 100.0,
                   ),
                 ),
@@ -121,12 +121,12 @@ class _PhotoUpdateState extends State<PhotoUpdate> {
   }
 
   void takePhoto(ImageSource source) async{
-    final pickedFile = await _picker.pickImage(
+    final pickedFile = await _picker2.pickImage(
       source: source,
     );
 
     setState(() {
-      _imageFile = pickedFile;
+      _imageFile2 = pickedFile;
       Navigator.of(context).pop();
     });
   }

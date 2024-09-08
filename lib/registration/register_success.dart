@@ -14,9 +14,9 @@ class RegisterSuccess extends StatelessWidget {
           child: Form(
             child: Column(
               children: [
-                const SizedBox(height: 50,),
+                const SizedBox(height: 70,),
                 const Text(
-                  "CONGRATULATIONS !",
+                  "Congratulations !",
                   style: TextStyle(
                       fontSize: 25,
                     color: Colors.green,
@@ -25,9 +25,7 @@ class RegisterSuccess extends StatelessWidget {
                 ),
                 const SizedBox(height: 50,),
                 const Text(
-                  "You have successfully submitted your registration. For active your account, "
-                      "one of your team coordinator will process your request & contact you shortly. "
-                      "Thank you.",
+                  "You have successfully submitted your registration. One of your team coordinator will process your request & contact you shortly. Thank you.",
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 70,),

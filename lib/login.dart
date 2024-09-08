@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/registration/personal_info.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 
-final _formKey = GlobalKey<FormState>();
+final _loginFormKey = GlobalKey<FormState>();
 
 String? validateEmail(String? email) {
   RegExp emailRegex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Form(
-              key: _formKey,
+              key: _loginFormKey,
               child: Column(
                 children: [
                   const SizedBox(
@@ -44,7 +44,7 @@ class Login extends StatelessWidget {
                     children: [
                       Text(
                         "Login Account",
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -92,7 +92,7 @@ class Login extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+                      if (_loginFormKey.currentState!.validate()) {
                         //   print("Success");
                         Navigator.push(
                           context,

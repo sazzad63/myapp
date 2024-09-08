@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:myapp/registration/register_success.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 
-import 'academic_info.dart';
+// import 'academic_info.dart';
 
-final _formKey = GlobalKey<FormState>();
+final _acFormKey = GlobalKey<FormState>();
 
-final _passwordController = TextEditingController();
-final _confirmPasswordController = TextEditingController();
+final _passwordController2 = TextEditingController();
+final _confirmPasswordController2 = TextEditingController();
 
 
-class AccountInfo extends StatelessWidget {
+class AccountInfo extends StatefulWidget {
   const AccountInfo({super.key});
 
+  @override
+  State<AccountInfo> createState() => _AccountInfoState();
+}
+
+class _AccountInfoState extends State<AccountInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +26,7 @@ class AccountInfo extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Form(
-              key: _formKey,
+              key: _acFormKey,
               child: Column(
                 children: [
                   const SizedBox(height: 20,),
@@ -31,19 +36,19 @@ class AccountInfo extends StatelessWidget {
                   ),
                   const SizedBox(height: 30,),
                   const Text(
-                    "Student Registration Step 3 of 3",
+                    "Registration Step 3 of 3",
                     style: TextStyle(
-                        fontSize: 20
+                        fontSize: 18
                     ),
                   ),
                   // const SizedBox(height: 5,),
                   // const Text("(Step 3 of 3)"),
                   const SizedBox(height: 30,),
-      
+
                   const SizedBox(height: 15,),
                   TextFormField(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    controller: _passwordController,
+                    controller: _passwordController2,
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -62,7 +67,7 @@ class AccountInfo extends StatelessWidget {
                   const SizedBox(height: 15,),
                   TextFormField(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    controller: _confirmPasswordController,
+                    controller: _confirmPasswordController2,
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -73,7 +78,7 @@ class AccountInfo extends StatelessWidget {
                     validator: (value){
                       if(value!.isEmpty){
                         return 'Enter confirm password';
-                      }else if(value !=_passwordController.text){
+                      }else if(value !=_passwordController2.text){
                         return 'Password & confirm password does not match';
                       }
                       return null;
@@ -96,9 +101,9 @@ class AccountInfo extends StatelessWidget {
                       // ),
                       ElevatedButton(
                         onPressed: (){
-                          if (_formKey.currentState!.validate()) {
+                          if (_acFormKey.currentState!.validate()) {
                             //   print("Success");
-      
+
                             showDialog(
                               barrierDismissible: false,
                               context: context,

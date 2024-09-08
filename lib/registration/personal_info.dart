@@ -5,11 +5,16 @@ import 'package:wc_form_validators/wc_form_validators.dart';
 import '../main.dart';
 import 'academic_info.dart';
 
-final _formKey = GlobalKey<FormState>();
+final GlobalKey<FormState> _piFormKey = GlobalKey<FormState>();
 
-class PersonalInfo extends StatelessWidget {
+class PersonalInfo extends StatefulWidget {
   const PersonalInfo({super.key});
 
+  @override
+  State<PersonalInfo> createState() => _PersonalInfoState();
+}
+
+class _PersonalInfoState extends State<PersonalInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +23,7 @@ class PersonalInfo extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Form(
-              key: _formKey,
+              key: _piFormKey,
               child: Column(
                 children: [
                 const SizedBox(height: 10,),
@@ -28,9 +33,9 @@ class PersonalInfo extends StatelessWidget {
                   ),
                   const SizedBox(height: 30,),
                   const Text(
-                    "Student Registration Step-1 of 3",
+                    "Registration Step-1 of 3",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold
                     ),
                   ),
@@ -50,7 +55,7 @@ class PersonalInfo extends StatelessWidget {
                     ]),
                   ),
                   const SizedBox(height: 20,),
-      
+
                   TextFormField(
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
@@ -71,12 +76,12 @@ class PersonalInfo extends StatelessWidget {
                           11, 'Enter your 11 character mobile number'),
                     ]),
                   ),
-      
+
                   const SizedBox(height: 50,),
-      
+
                   ElevatedButton(
                     onPressed: (){
-                      if (_formKey.currentState!.validate()) {
+                      if (_piFormKey.currentState!.validate()) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(

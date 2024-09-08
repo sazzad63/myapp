@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/registration/personal_info.dart';
+// import 'package:myapp/registration/personal_info.dart';
 import 'account_info.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 
-final _formKey = GlobalKey<FormState>();
+final GlobalKey<FormState> _aFormKey = GlobalKey<FormState>();
 
 List years = [
   {
@@ -53,7 +53,7 @@ class _AcademicInfoState extends State<AcademicInfo> {
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Form(
-              key: _formKey,
+              key: _aFormKey,
               child: Column(
                 children: [
                   const SizedBox(height: 10,),
@@ -63,9 +63,9 @@ class _AcademicInfoState extends State<AcademicInfo> {
                   ),
                   const SizedBox(height: 30,),
                   const Text(
-                    "Student Registration Step 2 of 3",
+                    "Registration Step 2 of 3",
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                       fontWeight: FontWeight.bold
                     ),
                   ),
@@ -153,7 +153,7 @@ class _AcademicInfoState extends State<AcademicInfo> {
                       // ),
                       ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (_aFormKey.currentState!.validate()) {
                             //   print("Success");
                             Navigator.push(
                               context,

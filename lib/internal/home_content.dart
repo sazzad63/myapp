@@ -34,30 +34,32 @@ class _HomeContentState extends State<HomeContent> {
         padding: const EdgeInsets.only(left: 10, top: 0, right: 10, bottom: 20),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 5, right: 5, bottom: 0, top: 10),
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                      horizontal: 15
-                  ),
-                  suffixIcon: const Icon(
-                    Icons.search,
-                    size: 26,
-                    color: Colors.black54,
-                  ),
-                  filled: true,
-                  hintText: 'Search',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: BorderSide.none,
-                  ),
+            TextField(
+              decoration: const InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 15
                 ),
-                onChanged: (String str){
-                  //
-                },
+                suffixIcon: Icon(
+                  Icons.search,
+                  size: 26,
+                  color: Colors.black54,
+                ),
+                // filled: true,
+                hintText: 'Search',
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black45),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black45),
+                ),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black45),
+                ),
               ),
+              onChanged: (String str){
+                //
+              },
             ),
 
             const SizedBox(height: 10,),

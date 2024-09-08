@@ -28,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
               child: Text(
                 "Modhupur Secondary School",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                     color: Colors.white,
                   fontWeight: FontWeight.bold
                 ),
@@ -107,6 +107,7 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           ),
                         ),
+
                         onTap: (){
                           Navigator.push(
                             context,
@@ -116,9 +117,11 @@ class _DashboardState extends State<Dashboard> {
                           );
                         },
                       ),
+
                       const SizedBox(
                         height: 10,
                       ),
+
                       const Text(
                         "Md. Sazzad Hossain",
                         style: TextStyle(
@@ -129,6 +132,7 @@ class _DashboardState extends State<Dashboard> {
                     ],
                   ),
                 ),
+
                 ListTile(
                   title: const Row(
                     children: [
@@ -140,6 +144,7 @@ class _DashboardState extends State<Dashboard> {
                           style: TextStyle(fontWeight: FontWeight.bold)),
                     ],
                   ),
+
                   onTap: () {
                     Navigator.push(
                       context,
@@ -173,6 +178,7 @@ class _DashboardState extends State<Dashboard> {
                   },
                 ),
                 const Divider(),
+
                 ListTile(
                   title: const Row(
                     children: [
